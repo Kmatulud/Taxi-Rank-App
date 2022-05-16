@@ -9,8 +9,27 @@
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 <body>
-    <div x-data="[]">
+    <div x-data="{ routes:[{ destination: 'Makhaza', people: 0,taxis: 0, departed: 0,},{ destination: 'Belhar', people: 0,taxis: 0, departed: 0,},{ destination: 'Bellville', people: 0,taxis: 0, departed: 0,},],fare1: 11.50, fare2: 25.00, fare3:15.90 }">
         <h1>Taxi Rank App</h1>
+        <template x-for="route in routes">
+        <table>
+            <tr>
+                <th x-text="route.destination"></th>
+            </tr>
+            <tr>
+                <td>Add taxi<button @click="route.taxis++">+</button></td>
+                <td x-text="route.taxis"></td>
+            </tr>
+            <tr>
+                <td>Passengers<button @click="route.people++">+</button></td>
+                <td x-text="route.people"></td>
+            </tr>
+            <tr>
+                <td>Departed taxis</td>
+                <td x-text="route.departed"></td>
+            </tr>
+        </table>
+        </template>
     </div>
 </body>
 </html>
