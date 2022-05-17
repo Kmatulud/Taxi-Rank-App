@@ -9,7 +9,7 @@
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 <body>
-    <div class="theData" x-data="{routes:[{ destination: 'Mahube', people: 0,taxis: 0, totalMade: 0, fare: 18.50, leave: false},{ destination: 'Khutsong', people: 0,taxis: 0, totalMade: 0, fare: 12.90, leave: false},{ destination: 'Bufferzone', people: 0,taxis: 0, totalMade: 0, fare: 22.50, leave: false},],route:'', taxiFare:'', addRoute: false, addedRouteValues: false, leave: false,}">
+    <div class="theData" x-data="{routes:[{ destination: 'Mahube', people: 0,taxis: 0, totalMade: 0, fare: 18.50, leave: false, taxisAvailable: 3},{ destination: 'Khutsong', people: 0,taxis: 0, totalMade: 0, fare: 12.90, leave: false, taxisAvailable: 3},{ destination: 'Bufferzone', people: 0,taxis: 0, totalMade: 0, fare: 22.50, leave: false, taxisAvailable: 3},],route:'', taxiFare:'', addRoute: false, addedRouteValues: false, taxiLimit:15}">
         <h1>Mamelodi Taxi Rank</h1>
         <div class="add">
             <button @click="addRoute=!addRoute">Add Route</button>
@@ -19,7 +19,7 @@
                     <br>
                     <input type="text" placeholder="Taxi fare" x-model="taxiFare">
                 </form>
-                <button @click="addedRouteValues=!addedRouteValues, routes.push({destination:route, fare: taxiFare,people: 0, taxis: 0, totalMade: 0, leave: false})">Add</button>
+                <button @click="addedRouteValues=!addedRouteValues, routes.push({destination:route, fare: taxiFare,people: 0, taxis: 0, totalMade: 0, leave: false, taxisAvailable: 3})">Add</button>
             </div>
         </div>
 
@@ -31,15 +31,20 @@
                 <tr>
                     <td>Add taxi<button @click="route.taxis++">+</button></td>
                     <td x-text="route.taxis"></td>
-                    <td>Passengers<button @click="route.people++">+</button></td>
-                    <td x-text="route.people"></td>
-                    <td>Leave</td>
-                    <td x-text="route.leave"></td>
+                    <td>Passengers
+                        <div class="addBtn">
+                        <button @click="route.people++">+</button>
+                        <span x-text="route.people"></span>
+                        <button @click="route.people--">-</button>
+                    </div>
+                    </td>
 
+                    <td><button :disabled="route.people < taxiLimit" @click="route.people-=taxiLimit, route.taxis=0, route.taxisAvailable--, route.totalMade=(route.fare * taxiLimit).toFixed(2)">Leave</button></td>
                     <td>Fare</td>
                     <td x-text="route.fare"></td>
-
-                    <td>Total made</td>
+                    <td>Taxis Available</td>
+                    <td x-text="route.taxisAvailable"></td>/td>
+                    <td>Income made</td>
                     <td x-text="route.totalMade"></td>
                 </tr>
             </table>
