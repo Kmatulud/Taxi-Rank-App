@@ -9,9 +9,9 @@
 
 :root{ 
     /* Setting CSS color variables in the root */
-    --bg-color: #420324;
-    --heading-color: #F71735;
-    --table-color1: #FEB95F;
+    --bg-color: #773344;
+    --heading-color: #FCD757;
+    --table-color1: #E56B6F;
     --table-color2: #C6C6C6;
 }
 
@@ -51,6 +51,9 @@ button {
     width: 70%;
     margin: auto;
     margin-bottom: 1rem;
+}
+.theData{
+    overflow: hidden;
 }
 /* ------------------------- Table Styling -------------------------------------------------------------- */
 

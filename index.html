@@ -9,7 +9,7 @@
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 <body>
-    <div x-data="{routes:[{ destination: 'Mahube', people: 0,taxis: 0, totalMade: 0, fare: 18.50, leave: false},{ destination: 'Khutsong', people: 0,taxis: 0, totalMade: 0, fare: 12.90, leave: false},{ destination: 'Bufferzone', people: 0,taxis: 0, totalMade: 0, fare: 22.50, leave: false},],route:'', taxiFare:'', addRoute: false, addedRouteValues: false, leave: false,}">
+    <div class="theData" x-data="{routes:[{ destination: 'Mahube', people: 0,taxis: 0, totalMade: 0, fare: 18.50, leave: false},{ destination: 'Khutsong', people: 0,taxis: 0, totalMade: 0, fare: 12.90, leave: false},{ destination: 'Bufferzone', people: 0,taxis: 0, totalMade: 0, fare: 22.50, leave: false},],route:'', taxiFare:'', addRoute: false, addedRouteValues: false, leave: false,}">
         <h1>Mamelodi Taxi Rank</h1>
         <div class="add">
             <button @click="addRoute=!addRoute">Add Route</button>
