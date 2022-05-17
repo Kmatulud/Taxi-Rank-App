@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap'); /*Imported Font from Google Fonts*/
+
+/* Removing default CSS styles */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{ 
+    /* Setting CSS color variables in the root */
+    --bg-color: #420324;
+    --heading-color: #F71735;
+    --table-color1: #FEB95F;
+    --table-color2: #C6C6C6;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    width: 100%;
+    position: relative;
+}
+
+body h1{
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--heading-color);
+    margin: 3rem auto;
+}
+
+input[type=text] {
+    width: 35%;
+    padding: 8px 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+button {
+    background-color: var(--bg-color);
+    color: #fff;
+    outline: none;
+    border: none;
+    padding: .5rem 1rem;
+    border: 1px solid #c6c6c6;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.add{
+    width: 70%;
+    margin: auto;
+    margin-bottom: 1rem;
+}
+/* ------------------------- Table Styling -------------------------------------------------------------- */
+
+body table{
+    font-family: 'Roboto', sans-serif;
+    border-collapse: collapse; /*Closes all table gaps*/
+    width: 70%;
+    margin: auto;
+    color: #fff;
+}
+
+table tr{
+    background-color: var(--bg-color);
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+/* table tr:nth-child(even){
+    background-color: #C6C6C6;
+    color: var(--bg-color);
+}
+table tr:hover{
+    background-color: #FEB95F;
+} */
+table tr th{
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: .5rem;
+    font-size: 1.5rem;
+    background-color: var(--table-color1);
+    color: var(---bg-color);
+    text-align: left;
+    margin-top: 1rem important!;
+}
+table tr td{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+}
+table tr button{
+    background-color: var(--bg-color);
+    color: #fff;
+    outline: none;
+    border: none;
+    padding: .5rem 1rem;
+    border: 1px solid #c6c6c6;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-left: 2rem;
+    cursor: pointer;
+}
+/* ------------------------- Table Styling -------------------------------------------------------------- */
+

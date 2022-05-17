@@ -5,30 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taxi Rank App</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 <body>
-    <div x-data="{ routes:[{ destination: 'Makhaza', people: 0,taxis: 0, departed: 0,},{ destination: 'Belhar', people: 0,taxis: 0, departed: 0,},{ destination: 'Bellville', people: 0,taxis: 0, departed: 0,},],fare1: 11.50, fare2: 25.00, fare3:15.90 }">
-        <h1>Taxi Rank App</h1>
+    <div x-data="{routes:[{ destination: 'Mahube', people: 0,taxis: 0, totalMade: 0, fare: 18.50, leave: false},{ destination: 'Khutsong', people: 0,taxis: 0, totalMade: 0, fare: 12.90, leave: false},{ destination: 'Bufferzone', people: 0,taxis: 0, totalMade: 0, fare: 22.50, leave: false},],route:'', taxiFare:'', addRoute: false, addedRouteValues: false, leave: false,}">
+        <h1>Mamelodi Taxi Rank</h1>
+        <div class="add">
+            <button @click="addRoute=!addRoute">Add Route</button>
+            <div x-show="addRoute">
+                <form x-on:submit.prevent>
+                    <input type="text" placeholder="Route Name" x-model="route">
+                    <br>
+                    <input type="text" placeholder="Taxi fare" x-model="taxiFare">
+                </form>
+                <button @click="addedRouteValues=!addedRouteValues, routes.push({destination:route, fare: taxiFare,people: 0, taxis: 0, totalMade: 0, leave: false})">Add</button>
+            </div>
+        </div>
+
         <template x-for="route in routes">
-        <table>
-            <tr>
-                <th x-text="route.destination"></th>
-            </tr>
-            <tr>
-                <td>Add taxi<button @click="route.taxis++">+</button></td>
-                <td x-text="route.taxis"></td>
-            </tr>
-            <tr>
-                <td>Passengers<button @click="route.people++">+</button></td>
-                <td x-text="route.people"></td>
-            </tr>
-            <tr>
-                <td>Departed taxis</td>
-                <td x-text="route.departed"></td>
-            </tr>
-        </table>
+            <table>
+                <tr>
+                    <th x-text="route.destination"></th>
+                </tr>
+                <tr>
+                    <td>Add taxi<button @click="route.taxis++">+</button></td>
+                    <td x-text="route.taxis"></td>
+                    <td>Passengers<button @click="route.people++">+</button></td>
+                    <td x-text="route.people"></td>
+                    <td>Leave</td>
+                    <td x-text="route.leave"></td>
+
+                    <td>Fare</td>
+                    <td x-text="route.fare"></td>
+
+                    <td>Total made</td>
+                    <td x-text="route.totalMade"></td>
+                </tr>
+            </table>
         </template>
     </div>
 </body>
