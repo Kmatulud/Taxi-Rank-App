@@ -109,5 +109,11 @@ table tr button{
     margin-left: 2rem;
     cursor: pointer;
 }
+footer{
+    background-color: #E56B6F;
+    text-align: center;
+    padding: 1rem;
+    bottom:0;
+}
 /* ------------------------- Table Styling -------------------------------------------------------------- */
 
